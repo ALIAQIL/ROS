@@ -55,6 +55,10 @@ colcon build
 source install/setup.bash
 ```
 
+**Build output:**
+
+![Build Output](images/01_build.png)
+
 ---
 
 ## 📡 Part 1 — Publisher & Subscriber
@@ -65,17 +69,30 @@ source ~/ros2_ws/install/setup.bash
 ros2 run py_pubsub talker
 ```
 
+**Publisher output:**
+
+![Publisher Output](images/02_publisher.png)
+
 ### Run the Subscriber (Terminal 2)
 ```bash
 source ~/ros2_ws/install/setup.bash
 ros2 run py_pubsub listener
 ```
 
-### Useful Commands
+**Subscriber output (receiving messages from the publisher):**
+
+![Subscriber Output](images/03_subscriber.png)
+
+### Topic Inspection
 ```bash
 ros2 topic list                # List all active topics
+ros2 topic info /topic         # Get topic info
 ros2 topic echo /topic         # See messages on the topic
 ```
+
+**Topic commands output:**
+
+![Topic Commands Output](images/04_topics.png)
 
 ---
 
@@ -95,6 +112,10 @@ ros2 run turtlesim turtle_teleop_key
 ```bash
 ros2 run py_pubsub turtle_mover
 ```
+
+**Turtle mover output:**
+
+![Turtle Mover Output](images/05_turtle_mover.png)
 
 ### Observe Turtle Position
 ```bash
