@@ -55,7 +55,7 @@ colcon build
 source install/setup.bash
 ```
 
-**Build output:**
+**✅ Build output — all 5 executables registered:**
 
 ![Build Output](images/01_build.png)
 
@@ -69,7 +69,7 @@ source ~/ros2_ws/install/setup.bash
 ros2 run py_pubsub talker
 ```
 
-**Publisher output:**
+**✅ Publisher output — publishing "Bonjour N" every second:**
 
 ![Publisher Output](images/02_publisher.png)
 
@@ -79,18 +79,18 @@ source ~/ros2_ws/install/setup.bash
 ros2 run py_pubsub listener
 ```
 
-**Subscriber output (receiving messages from the publisher):**
+**✅ Subscriber output — receiving messages in real-time:**
 
 ![Subscriber Output](images/03_subscriber.png)
 
 ### Topic Inspection
 ```bash
-ros2 topic list                # List all active topics
-ros2 topic info /topic         # Get topic info
-ros2 topic echo /topic         # See messages on the topic
+ros2 topic list
+ros2 topic info /topic
+ros2 topic echo /topic
 ```
 
-**Topic commands output:**
+**✅ Topic commands — list, info, and echo output:**
 
 ![Topic Commands Output](images/04_topics.png)
 
@@ -98,29 +98,47 @@ ros2 topic echo /topic         # See messages on the topic
 
 ## 🐢 Part 2 — Turtlesim Control
 
-### Launch Turtlesim (Terminal 1)
+### Launch Turtlesim
 ```bash
+# Terminal 1
 ros2 run turtlesim turtlesim_node
-```
 
-### Keyboard Control (Terminal 2)
-```bash
+# Terminal 2 (keyboard control)
 ros2 run turtlesim turtle_teleop_key
 ```
 
-### Automated Movement Script (Terminal 2)
+### Automated Movement Script
 ```bash
 ros2 run py_pubsub turtle_mover
 ```
 
-**Turtle mover output:**
+**✅ Turtlesim launched — turtle spawned at center:**
 
-![Turtle Mover Output](images/05_turtle_mover.png)
+![Turtlesim Initial](images/06_turtlesim_initial.png)
 
-### Observe Turtle Position
+**✅ Turtle moving in circles (mid-movement):**
+
+![Turtlesim Moving](images/07_turtlesim_moving.png)
+
+**✅ Complete circle drawn by turtle_mover:**
+
+![Turtlesim Full Circle](images/08_turtlesim_after_move.png)
+
+**✅ Turtle mover + turtlesim terminal output:**
+
+![Turtle Mover Output](images/10_turtle_mover_turtlesim.png)
+
+### Turtlesim Topic Observation
+
 ```bash
+ros2 topic list
 ros2 topic echo /turtle1/pose
+ros2 node list
 ```
+
+**✅ Turtlesim topics, pose data, and node list:**
+
+![Turtlesim Topics](images/09_turtlesim_topics.png)
 
 ---
 
@@ -181,6 +199,8 @@ ros2 run py_pubsub gesture_controller --ros-args -p model_path:=./gesture_model.
 | 👇 Down | `linear.x = -2.0` | Move backward |
 | 👈 Left | `angular.z = 1.5` | Turn left |
 | 👉 Right | `angular.z = -1.5` | Turn right |
+
+> **Note:** Part 3 requires a webcam and display environment. The gesture data collection, model training, recognition, and ROS 2 control node are fully implemented and ready to run when a webcam is available.
 
 ---
 
